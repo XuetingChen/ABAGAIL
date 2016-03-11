@@ -11,6 +11,7 @@ import opt.ga.UniformCrossOver;
 import opt.ga.CrossoverFunction;
 import opt.ga.GeneticAlgorithmProblem;
 import opt.ga.MutationFunction;
+import opt.prob.ProbabilisticOptimizationProblem;
 import shared.DataSet;
 import shared.ErrorMeasure;
 import shared.Instance;
@@ -22,7 +23,7 @@ import func.nn.NeuralNetwork;
  * @author Andrew Guillory gtg008g@mail.gatech.edu
  * @version 1.0
  */
-public class NeuralNetworkOptimizationProblem implements HillClimbingProblem, GeneticAlgorithmProblem {
+public class NeuralNetworkOptimizationProblem implements HillClimbingProblem, GeneticAlgorithmProblem, ProbabilisticOptimizationProblem {
 
     /**
      * The evaluation function
@@ -94,6 +95,13 @@ public class NeuralNetworkOptimizationProblem implements HillClimbingProblem, Ge
      */
     public void mutate(Instance d) {
         mutate.mutate(d);
+    }
+    
+    /**
+     * @see opt.ProbabilisticOptimizationProblem#getDistribution()
+     */
+    public Distribution getDistribution() {
+    	return dist;
     }
 
 }
