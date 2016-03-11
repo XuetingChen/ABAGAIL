@@ -341,9 +341,9 @@ public class OptimizationTest {
         count_one_test_params.put("MIMIC_samples",50.);
         count_one_test_params.put("MIMIC_to_keep",10.);
 
-        int[] N = {40}; //{20,40,60,80};
-        int[] iterations = {1000};
-        String[] algorithms = {"GA"}; //{"RHC", "SA", "GA", "MIMIC"};
+        int[] N = {20,40,60,80};
+        int[] iterations = {1000, 1000, 1000, 1000};
+        String[] algorithms = {"RHC", "SA", "GA", "MIMIC"};
         for (int i = 0; i < algorithms.length; i++) {
             for (int j = 0; j < N.length; j++) {
 				for (int l = 0; l < num_runs; l++) {
