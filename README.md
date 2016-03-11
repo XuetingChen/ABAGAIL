@@ -1,3 +1,35 @@
+CS7641: Assignment 2
+====================
+
+(Forked from [original](https://github.com/pushkar/ABAGAIL/).)
+
+The Code
+--------
+
+To run from a terminal:
+
+1. Go to the root of the repo directory.
+2. Run: `ant`
+3. Run: `java -cp ABAGAIL.jar opt.test.NurseryTest`
+4. Run: `java -cp ABAGAIL.jar opt.test.OptimizationTest`
+
+
+The Data
+--------
+
+The data sets used by the neural network trainer for the Nursery problem can be found under: `data/`
+
+The Results
+-----------
+
+After running the above code steps:
+
+* Nursery problem results will be under: `NN_Results/`
+* Optimization problem results will be under: `Optimization_Results/`
+
+(Original README follows)
+
+
 ABAGAIL
 =======
 
