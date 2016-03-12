@@ -182,17 +182,17 @@ public class NurseryTest implements Runnable {
 				trainingTime = (end - start)/Math.pow(10,9);
 
 				Instance optimalInstance = oa.getOptimal();
-				String training_accuracy = df.format(calculate_accuracy(training_instances, optimalInstance));
-				String test_accuracy = df.format(calculate_accuracy(test_instances, optimalInstance));
+				String training_accuracy = df.format(calculate_accuracy(training_instances, optimalInstance) / 100.0f);
+				String test_accuracy = df.format(calculate_accuracy(test_instances, optimalInstance) / 100.0f);
 				String training_time = df.format(trainingTime);
 
 				results +=
-						"\nTraining Accuracy: " + training_accuracy + "%\n"
-						+ "Testing Accuracy: " + test_accuracy + "%\n"
+						"\nTraining Accuracy: " + training_accuracy + "\n"
+						+ "Testing Accuracy: " + test_accuracy + "\n"
 						+ "Training time: " + training_time + " seconds";
-				String file_path = optimizationAlgorithm + "_" + training_data_file.split("\\.")[0] + "_" + comments + "_iter_" + trainingIterations + ".csv";
+				String file_path = optimizationAlgorithm + "_" + training_data_file.split("\\.")[0] + "_run-" + comments + "_iter_" + trainingIterations + ".csv";
 				write_output_to_file(output_dir, file_path, results, false);
-				write_output_to_file(output_dir, file_path, threadName + "," + training_accuracy + "," + test_accuracy + "," + training_time, true);
+				write_output_to_file(output_dir, file_path, optimizationAlgorithm + "," + trainingIterations + "," + comments + "," + training_accuracy + "," + test_accuracy + "," + training_time, true);
 				System.out.println("\n" + file_path);
 				System.out.println(results);
 		} catch (Exception e) {
@@ -234,11 +234,11 @@ public class NurseryTest implements Runnable {
                     for (int l = 0; l < training_iterations.length; l++) {
                         new NurseryTest(
                                 algorithms[i],
-                                algorithms[i] + "_" + training_data_files[j].split("\\.")[0] + "_run-" + k + "_iteration-" + l,
+                                algorithms[i] + "_" + training_data_files[j].split("\\.")[0] + "_run-" + (k + 1) + "_iteration-" + training_iterations[l],
                                 data_folder_path,
                                 training_data_files[j],
                                 test_data_files[j],
-                                "run_" + (k + 1),
+                                String.valueOf(k + 1),
                                 training_iterations[l],
                                 output_dir
                         ).start();
