@@ -1,7 +1,11 @@
 CS7641: Assignment 2
 ====================
 
-(Forked from [original](https://github.com/pushkar/ABAGAIL/).)
+Code and datasets for Georgia Tech's CS7641 Spring 2016 Randomized Optimization project.
+
+This analysis used ABIGAIL running on Mac OS X, available from this Java repo.
+
+(Forked from the [original](https://github.com/pushkar/ABAGAIL/).)
 
 The Code
 --------
